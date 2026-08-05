@@ -61,6 +61,14 @@ main {
     align-items: center;
 }
 
+Section {
+    max-width: 80rch;
+}
+
+h3 {
+    margin-top: 0;
+}
+
 aside {
     visibility: hidden;
     flex: 1;
