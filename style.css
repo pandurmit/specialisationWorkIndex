@@ -61,11 +61,11 @@ main {
     align-items: center;
 }
 
-Section {
+section {
     max-width: 80rch;
 }
 
-h3 {
+.firstSectionHeading {
     margin-top: 0;
 }
 
