@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Boop Garden design tokens
+   Shared by the instrument and the project pages so both speak one visual
+   language. Change a value here and it updates everywhere.
+   ========================================================================== */
+
+:root {
+  /* ---- Colour: surfaces ------------------------------------------------ */
+  --colour-sky: #fff6e6;          /* warm cream page background */
+  --colour-sky-deep: #ffe9c7;     /* gradient end / secondary surface */
+  --colour-grass: #cfeec0;        /* ground strip under the pads */
+  --colour-ink: #2b2340;          /* outlines, faces and all text (13.8:1 on sky) */
+  --colour-ink-soft: #5a4f73;     /* secondary text (7.0:1 on sky) */
+  --colour-paper: #ffffff;
+  --colour-focus: #1b5fd1;        /* focus ring, 5.4:1 on sky; drawn 4px outside shapes so it always sits on the background */
+
+  /* ---- Colour: note palette (low pitch -> high pitch, rainbow order) ---- */
+  /* Every pad also has a unique shape and a 4px ink outline, so colour is
+     never the only cue (WCAG 1.4.1) and every edge meets 3:1 (WCAG 1.4.11). */
+  --note-1: #e8505b;  /* C4  tomato  - circle   */
+  --note-2: #f28c28;  /* D4  orange  - square   */
+  --note-3: #f6c935;  /* E4  sun     - triangle */
+  --note-4: #5bbf6a;  /* G4  leaf    - star     */
+  --note-5: #2eb5b0;  /* A4  teal    - heart    */
+  --note-6: #4a8fe7;  /* C5  sky     - hexagon  */
+  --note-7: #8c6bd8;  /* D5  violet  - diamond  */
+  --note-8: #e86bb5;  /* E5  bubblegum - flower */
+
+  /* ---- Colour: sound worlds (each one is a different sky) ------------ */
+  --sky-bell: linear-gradient(#9fd8ff, #fff1d0);     /* sunny day */
+  --sky-bubble: linear-gradient(#6fcde6, #d6f6ff);   /* under the sea */
+  --sky-toot: linear-gradient(#f7a8cf, #ffe1a8);     /* sunset */
+
+  /* ---- Colour: scenery --------------------------------------------------- */
+  --sun: #ffd84d;
+  --cloud: #ffffff;
+  --hill-back: #9edb7c;
+  --hill-front: #74c95f;
+
+  /* ---- Typography ------------------------------------------------------- */
+  --font-display: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Verdana", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  /* fluid type scale (min at 360px wide, max at 1600px) */
+  --text-sm: clamp(0.9rem, 0.86rem + 0.15vw, 1rem);
+  --text-base: clamp(1.05rem, 1rem + 0.2vw, 1.2rem);
+  --text-lg: clamp(1.3rem, 1.15rem + 0.5vw, 1.6rem);
+  --text-xl: clamp(1.8rem, 1.4rem + 1.4vw, 2.8rem);
+  --text-2xl: clamp(2.4rem, 1.6rem + 3vw, 4.4rem);
+  --leading-body: 1.6;
+  --leading-tight: 1.1;
+  --measure: 68ch;
+
+  /* ---- Space (4px base) -------------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ---- Shape ------------------------------------------------------------ */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 2rem;
+  --radius-pill: 999px;
+  --outline-width: 4px;
+  --shadow-soft: 0 6px 0 rgb(43 35 64 / 0.18);
+  --shadow-lift: 0 10px 0 rgb(43 35 64 / 0.18);
+
+  /* ---- Motion ----------------------------------------------------------- */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1); /* overshoot = playful */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-quick: 120ms;   /* press response: must feel instant */
+  --dur-base: 300ms;    /* bounce back */
+  --dur-slow: 900ms;    /* ripples, glows */
+}
+
+/* Users who ask the OS for less motion get near-instant transitions.
+   Colour and face changes still give feedback without movement. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-quick: 1ms;
+    --dur-base: 1ms;
+    --dur-slow: 1ms;
+    --ease-bounce: linear;
+  }
+}
